@@ -14,9 +14,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-		
-	  - name: Project Setup # Use the custom reusable action.
-		uses: ./.github/actions/setup
+
+      - name: Project Setup # Use the custom reusable action.
+        uses: ./.github/actions/setup
 
       - name: Install pipx
         run: python -m pip install --upgrade pipx
@@ -36,12 +36,12 @@ jobs:
 
       - name: Run Typing Checks
         run: poetry run mypy src/ tasks.py tests/
-		
-	  - name: Run Tests # Run tests using the invoke task.
-		run: poetry run invoke test
-		
-	  - name: Run Linting # Run linting using the invoke task.
-		run: poetry run invoke lint
-		
-	  - name: Run Typing Checks # Run typing checks using the invoke task.
-		run: poetry run invoke type
+
+      - name: Run Tests # Run tests using the invoke task.
+        run: poetry run invoke test
+
+      - name: Run Linting # Run linting using the invoke task.
+        run: poetry run invoke lint
+
+      - name: Run Typing Checks # Run typing checks using the invoke task.
+        run: poetry run invoke type
